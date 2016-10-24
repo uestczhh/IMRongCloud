@@ -2,6 +2,7 @@ package com.uestczhh.im;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.PersistableBundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,8 +15,9 @@ import io.rong.imkit.RongIM;
 import io.rong.imkit.fragment.ConversationListFragment;
 import io.rong.imlib.RongIMClient;
 import io.rong.imlib.model.Conversation;
+import io.rong.imlib.model.UserInfo;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener ,RongIM.UserInfoProvider{
 
     private Button btn10086;
     private Button btn10000;
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         initView();
+        RongIM.setUserInfoProvider(this,true);
 
     }
 
@@ -95,5 +98,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Log.e("MainActivity", "——onError—-" + errorCode);
             }
         });
+    }
+
+    @Override
+    public UserInfo getUserInfo(String s) {
+        return null;
     }
 }

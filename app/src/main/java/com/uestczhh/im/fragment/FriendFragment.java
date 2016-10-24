@@ -33,12 +33,12 @@ public class FriendFragment extends Fragment {
         TextView textView = new TextView(getActivity());
         textView.setGravity(View.TEXT_ALIGNMENT_CENTER);
         textView.setText("第三页");
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RongIM.getInstance().startPrivateChat(getActivity(), "10000", "聊天");
-            }
-        });
+//        textView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                RongIM.getInstance().startPrivateChat(getActivity(), "10000", "聊天");
+//            }
+//        });
         return textView;
     }
 }

@@ -48,6 +48,7 @@
 
         <activity android:name=".HomeActivity" />
 
+        <!--会话界面配置-->
         <activity
             android:name=".ConversationActivity"
             android:launchMode="singleTop"
@@ -66,6 +67,18 @@
 
         </activity>
 
+        <!--消息推送配置-->
+        <receiver
+            android:name=".receiver.NotificationReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="io.rong.push.intent.MESSAGE_ARRIVED" />
+                <action android:name="io.rong.push.intent.MI_MESSAGE_ARRIVED" />
+                <action android:name="io.rong.push.intent.MESSAGE_CLICKED" />
+                <action android:name="io.rong.push.intent.MI_MESSAGE_CLICKED" />
+            </intent-filter>
+        </receiver>
+
         <!-- imlib config begin -->
         <meta-data
             android:name="RONG_CLOUD_APP_KEY"
@@ -76,11 +89,13 @@
             android:exported="true"
             android:process=":ipc" />
 
-        <service android:name="io.rong.imlib.ReConnectService"
-            android:exported="true"/>
+        <service
+            android:name="io.rong.imlib.ReConnectService"
+            android:exported="true" />
 
-        <receiver android:name="io.rong.imlib.ConnectChangeReceiver"
-            android:exported="true"/>
+        <receiver
+            android:name="io.rong.imlib.ConnectChangeReceiver"
+            android:exported="true" />
 
         <receiver
             android:name="io.rong.imlib.HeartbeatReceiver"

@@ -38,9 +38,9 @@ public class HomeActivity extends AppCompatActivity {
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         listFragment = new ArrayList<>();
         mConversationListFragment = initConversationList();
-        listFragment.add(new HomeFragment());
+        listFragment.add(HomeFragment.getIntance());
         listFragment.add(mConversationListFragment);
-        listFragment.add(new FriendFragment());
+        listFragment.add(FriendFragment.getIntance());
         adapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
